@@ -1,3 +1,77 @@
 body {
-  font-family: sans-serif
+	font-family: Kristen ITC;
+}
+
+h1 {
+	font-size: 130px;
+	color: #c10076;
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 0;
+	padding-left: 60px;
+}
+
+#big {
+	width: 700px;
+	margin: auto;
+}
+
+#small  {
+	width: 600px;
+	padding-top: 10px;
+	margin: auto;
+}
+
+.bever {
+	padding-left:50px;
+	padding-top: 10px;
+}
+
+#todo-input {
+	background-image: url(/img/input.jpg);
+	background-repeat: no-repeat;
+	border: none;
+	height: 54px;
+	width: 320px;
+	padding-left: 15px;
+	padding-right: 30px;
+	font-family: Kristen ITC;
+}
+
+*:focus {
+    outline: 0;
+}
+
+#add {
+	background-image: url(/img/add.jpg);
+	background-repeat: no-repeat;
+	border: none;
+	height: 53px;
+	width: 100px;
+	font-size: 0;
+}
+
+li {
+	font-size: 50px;
+	list-style: none;
+}
+
+.do {
+	color: black;
+}
+
+.done {
+	color: #ccc;
+	text-decoration: line-through;
+}
+
+
+.remove {
+	height: 17px;
+	width: 20px;
+	background-image: url(/img/gone.jpg);
+	background-repeat: no-repeat;
+	border: none;
+	margin-left: 10px;
+  display: inline;
 }

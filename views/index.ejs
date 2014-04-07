@@ -4,27 +4,67 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <meta charset="utf-8">
+    
+    <script type="text/javascript" src="javascripts/vendor/jquery-1.11.0.js"></script>
+
+	<script type="text/javascript">
+
+
+jQuery(document).ready(function(){
+
+
+	jQuery("#todo-form").submit(function(event){
+		var text = jQuery("#todo-input").val();
+	  	jQuery("#todo-list").append("<li class=\"do\">" + text + " <button class=\"remove\"> </li>");
+	  	jQuery("#todo-input").val("");
+	  	event.preventDefault();
+	});
+
+		$(document).on("click", ".remove", function(){
+   		$(this).closest("li").remove();
+		});
+
+
+
+		$(document).on("click", "li",function(){
+ 		$(this).closest("li").toggleClass("done");
+ 		});
+});
+
+	</script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <form method="POST" action="/todos">
-      <input type="text" name="title">
-      <input type="submit">
+    
+    
+    <div id="big">      
+		<h1>ToDo</h1>
+		<img src="img/bever.jpg" class="bever">
+		<img src="img/line.jpg">
+		<div id="small">
+		
+<form method="POST" action="/todos">
+      <input type="text" name="title" id="todo-input" style="margin-left:50px;">
+      <input type="submit" id="add">
     </form>
     <ul>
       <% todos.forEach(function(todo){ %>
       <li><%= todo.title %>
         <form method="POST" action="/todos/<%= todo._id %>"> 
           <input type="hidden" name="_method" value="PUT">
-          <input type="checkbox" name="done" <%= todo.done ? 'checked' : '' %>>
-          <input type="submit" value="update">
         </form>
         <form method="POST" action="/todos/<%= todo._id %>"> 
           <input type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="delete">
+          <input type="submit" value="" class="remove">
         </form>
       </li>
       <% }) %>
-    </ul>
+    </ul>      
+      
+	</div>
+	</div>
+    
+    
+    
+    
   </body>
 </html>
